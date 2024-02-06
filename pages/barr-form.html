@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" type="text/css" href="page.css" />
+</head>
+<html>
+  <div class="PH" style="background-color: #6473C3">
+    <div class="nav-bar">
+      <img
+        src="/assets/logo-white.png"
+        style="padding-left: 78px"
+        width="61"
+        height="73"
+      />
+      <div class="nav-link">
+        <a href="../index.html"><p>work</p></a>
+      </div>
+    </div>
+
+    <div class="PH-content">
+      <p class="PH-title">Improving Student Grade Checks</p>
+      <p class="PH-desc">
+        Building a form to streamline the process of entering data following
+        student grade checks for teachers at Pasadena High School
+      </p>
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="section">
+      <p class="section-title">The Problem</p>
+      <p class="section-body">
+        In 2021, Pasadena High School introduced the BARR program for 9th grade
+        students. BARR - Building Assets, Reducing Risks - is a strengths-based
+        model that provides more than 170 schools with a comprehensive approach
+        to meeting the academic, social, and emotional needs of all students.
+        <br /><br />
+        Part of the requirements for the implementation of the program is weekly
+        grade check ins for all students, to better identify which students need
+        support before grades are posted for the semester. Teachers were
+        assigned 15-20 students and asked to fill out a spreadsheet for each
+        check in.
+        <br /><br />
+        The spreadsheet was difficult to manage and use - and many teachers
+        found it too time consuming to input the data. These UI led to less than
+        25% of BARR teachers completing the weekly check-ins over the course of
+        the 2021-22 academic year.
+        <br /><br />
+        As one of the BARR teachers that shared the complaints, I offered to
+        create a form that would streamline the process of inputting and
+        analyzing the student data.
+      </p>
+      <br />
+    </div>
+
+    <div class="section">
+      <p class="section-title">My Role</p>
+      <p class="section-body">
+        Solo designer, researcher, and developer - I was working on my own for
+        this one!
+      </p>
+    </div>
+
+    <div class="section">
+      <p class="section-title">Identifying Pain Points</p>
+
+      <iframe></iframe>
+      <p class="section-body">
+        After observing and timing 3 teachers on campus, I found that on average
+        it took each teacher 5-6 minutes per student to pull up grades and input
+        the data, using this spreadsheet. This did not include the time needed
+        to talk to each student about their grades and concerns. At 15-20
+        students, this is an extra 75 - 100 minutes each week spent just
+        inputting data.
+        <br />
+        <br />
+        I also conducted an initial survey with the BARR teachers on campus. The
+        main complaints were how difficult it was to find the student they
+        needed, the use of dropdowns to input the grades, and having to manually
+        create a new row for each check in instance.
+      </p>
+      <img />
+      <p class="section-body">
+        The Barr Coordinator, who used this spreadsheet to identify students who
+        needed extra support, also noted that it was visually unappealing and
+        overwhelming when there were so many data entries.
+
+        <br />
+        <br />
+
+        I also asked teachers what features were most important to them when
+        thinking about the design & functionality of a BARR grade check form.
+        The main concerns were being able to move through the form, find
+        students, and input grades quickly.
+      </p>
+
+      <img />
+    </div>
+
+    <br /><br />
+
+    <div class="section">
+    <p class="section-title">Ideation</p>
+    <p class="section-body">
+        Based on the survey results, I knew that my main goal was reducing the
+        amount of time needed to complete the form. I also knew that eventually
+        the data had to be organized on the spreadsheet, as that was one of the
+        deliverables the BARR coordinator had to submit to the overarching BARR
+        program. So, when I broke it down, I just needed to design a better UI
+        for the data entry. I could then send the data to the spreadsheet and
+        automatically organize it. <br />
+        <br />
+        So how could I reduce the amount of time? One simple way I thought to do
+        this is by reducing the amount of time needed to find the correct
+        student. I thought, if I had the teachers fill out a form - where they
+        could type in the name of the student and the form data directly - I
+        then could write a script that would organize those entries
+        alphabetically on the spreadsheet.
+        <br />
+        <br />
+        After looking into a couple different options on how to send data from
+        an web based form to a Google Sheets, I found the platform SheetDB.
+        SheetDb allows users to create an API endpoint from a google sheet. I
+        could then use this API to post, get, edit, and delete data from the
+        google sheet directly in a JavaScript script.
+    </p>
+    <br />
+    </div>
+
+    <div class="section">
+        <div class="side-by-side">
+            <div class="sbs-container" style="width: 630px; height: 418px">
+            <img src="/assets/initial-website-design.png" />
+            </div>
+            <div>
+            <p class="sbs-right" style="width: 265px">
+                I built an initial form with a simple design for teachers to try. Once the submit button was pushed, the script would create a new row on the google sheet with that data entry. A second function organized and color coded the google sheet by alphabetizing the student names.  <br /><br />
+                My initial design used some of the same features as the original spreadsheet - mostly for consistency and familiarity. With this first design, I wanted to see if taking away the step of finding the correct student would streamline this process enough to make a significant difference.
+                <br /><br />
+                After finishing the initial design, I observed the same three teachers as before using this new form. All three teachers were able to reduce the time it took for them to complete the form by a minimum of 30 seconds. Success!
+            </p>
+            </div>
+</div>
+
+<p class = "section-body"> I then pushed out the form to all the BARR teachers and conducted another survey to learn more about their thoughts and collect feedback on the design before moving into the next iteration. </p>
+
+
+<div class="side-by-side">
+            <div class="sbs-container" style="width: 630px; height: 418px">
+            <img src="/assets/initial-website-design.png" />
+            </div>
+            <div>
+            <p class="sbs-right" style="width: 265px">
+                Some teachers noted they liked how the student names pop up as they start to type in the name, making it easier and faster to find the student.   <br /><br />
+                A few teachers made some great suggestions to include descriptions of the Level of Concern and SMART goals - since not every teacher might know the acronyms. Another mentioned that it may make more sense to have Level of Concern listed after the grades. 
+                <br /><br />
+                Verbally, one teacher I observed noted that the dropdowns for the grades made the form long and cumbersome and suggested using radio buttons instead. I ran that idea across a couple other teachers informally and they seemed to agree. 
+            </p>
+            </div>
+</div>
+</div>
+
+
+<div class="section">
+        <div class="side-by-side">
+
+                <p class="sbs-right" style="width: 265px">
+                    In the final design, I took into account some of the teacher feedback to improve upon existing features, as well as add some new ones. <br /><br />
+                    Using a date API, I included an automatic date to keep track of when data entries were being made. I also added an entry for teacher name so that the BARR coordinator could keep track of who was completing the entries. 
+                    <br /><br />
+                    I switched the grade entry from drop downs to radio buttons, which reduced the scrolling it required to access all the grades and streamlined the process of entering them. <br><br>
+                    I added descriptions to the Level of Concern and SMART goal entries, as well as moved the placement of the Level of Concern entry to after the grade entries.  <br> <br>
+                    Finally, once submitted the form automatically resets, but keeps the date and teacher name. This allows teachers to easily and quickly move on to the next student entry.
+                </p>
+            <div>
+                <img src="/assets/initial-website-design.png" style = "padding-left: 5%;" />
+            </div>
+        </div>
+
+        <p class = "section-body"> The data from each entry was automatically pushed to the Google Sheet, adding a new row in chronological order. </p>
+
+        <p class = "section-body"> Then, a separate script pulled that data into another sheet, organizing it alphabetically by student name and color coding grades and level of concern.  </p>
+
+        <p class = "section-body"> Teachers were given access to the alphabetized sheet, in order to see student progress - but not the actual sheet where the data was pushed to by the form. This allowed the BARR coordinator to keep a backup of all the data, just in case someone edited the data by accident. </p>
+    </div>
+
+    <div class="section">
+        <p class="section-title">What happened next?</p>
+        <p class="section-body">
+            The BARR form was used to conduct grade check-ins throughout the 2022-2023 academic year and is continued to be used during the 2023-2024 academic year. It was really rewarding to design and develop a solution for a problem that was so personal to myself and my coworkers. This year, I’ve conducted trainings with new BARR teachers and released video tutorials on how to use the form effectively - so it looks like this form is here to stay!
+        </p>
+    </div>
+
+    
+<br />
+<br />
+<div
+    style="
+    height: 30px;
+    width: 100%;
+    margin: 0;
+    flex-shrink: 0;
+    background-color: #6473C3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    "></div>
+</html>
